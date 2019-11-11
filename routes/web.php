@@ -12,6 +12,9 @@
 */
 
 //Esta es la ruta por defecto que trae laravel, ustedes la pueden borrar y crear la que deseen
+//Route::get('/','HomeController@index');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,10 +39,11 @@ Route::get('/administrarPelicula','AdministrarPeliculasController@index')->name(
 //Estas rutas las cree para adelantar el trabajo en la clase---
 
 //Ruta para agregar Pelicula
-//Route::get('/agregarPelicula','AdministrarPeliculasController@create');
+Route::get('/agregarPelicula','AdministrarPeliculasController@create');
 //Aquí debemos crear ruta por POST para guardar la película metodo: save
+Route::post('/guardarPelicula','AdministrarPeliculasController@save');
 //Ruta para ver el detalle de la Película
-//Route::get('/detallePelicula','AdministrarPeliculasController@show');
+Route::get('/detallePelicula/{id}','AdministrarPeliculasController@show');
 //Ruta para Editar Películas
 //Route::get('/editarPelicula','AdministrarPeliculasController@edit');
 //Aquí debemos crear la ruta para guardar los cambios método update
