@@ -9,9 +9,9 @@
 
 ## Amigas y amigos
 
-Este constituye un prouetcto académico sobre el Framework Laravel, al descargarlo o clonarlo, deben tener en cuenta lo siguiente:
+Este constituye un proyecto académico sobre el Framework Laravel, al descargarlo o clonarlo, deben tener en cuenta lo siguiente:
 - [Desde la consola, deben ejecutar el comando: composer update ó composer install]
-- [Tomar la incformación contenida en el archivo .env.example y crear su propio archivo .env, ejecutar los cambios que requiera]
+- [Tomar la información contenida en el archivo .env.example y crear su propio archivo .env, ejecutar los cambios que requiera]
 - [Desde la consola, ejecutar el comando php artisan key:generate]
 - [Ejecutar desde la consola, el comando: php artisan serve]
 
