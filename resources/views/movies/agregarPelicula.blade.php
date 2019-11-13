@@ -12,7 +12,7 @@
                 </ul>
             @endif
 
-            <form action="/guardarPelicula" method="POST" enctype="multipart/formdata">
+            <form action="/guardarPelicula" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="nombrePelicula">Nombre</label>

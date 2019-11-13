@@ -20,13 +20,14 @@
         </tr>
         </thead>
         <tbody>
+           
             @foreach ($peliculas as $key => $value)
                 <tr>
                 <td>{{$value->id}}</td>
                 <td>{{$value->title}}</td>
                 <td><a href="/detallePelicula/{{$value->id}}"><ion-icon name="eye"></ion-icon></a></td>
-                <td><a href="#"><ion-icon name="create"></ion-icon></a></td>
-                <td><a href="#"><ion-icon name="trash"></ion-icon></td></a>
+                <td><a href="/editarPelicula/{{$value->id}}"><ion-icon name="create"></ion-icon></a></td>
+                <td><a href="/eliminarPelicula/{{$value->id}}"><ion-icon name="trash"></ion-icon></td></a>
                 </tr>
 
             @endforeach
@@ -38,6 +39,7 @@
     <div>
         {{$peliculas->links()}}
     </div>
+    
     </div>    
 
 @endsection

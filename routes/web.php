@@ -45,9 +45,11 @@ Route::post('/guardarPelicula','AdministrarPeliculasController@save');
 //Ruta para ver el detalle de la Película
 Route::get('/detallePelicula/{id}','AdministrarPeliculasController@show');
 //Ruta para Editar Películas
-//Route::get('/editarPelicula','AdministrarPeliculasController@edit');
-//Aquí debemos crear la ruta para guardar los cambios método update
+//Route::get('/editarPelicula/{id}','AdministrarPeliculasController@edit');
+//Ruta para guardar los cambios método update
+//Route::post('/guardarPeliculaEditada/{id}', 'AdministrarPeliculasController@update');
 
 //Ruta para buscar películas
 //Route::get('/buscarPelicula','AdministrarPeliculasController@search');
-
+//Ruta para eliminar una película 
+//Route::get('/eliminarPelicula/{id}','AdministrarPeliculasController@delete');
