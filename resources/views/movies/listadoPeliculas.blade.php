@@ -2,7 +2,7 @@
 @section('content')
     <h2 class="text-center">Listado de Películas!!!</h2>
     <div>
-    <form action="" method="GET">
+    <form action="/buscarPelicula" method="GET">
         <input type="submit" value="Buscar"><input type="text" name="busqueda">
         <a href="/agregarPelicula">Agregar Película</a>
     </form>

@@ -77,7 +77,7 @@ class AdministrarPeliculasController extends Controller
 	
         
 
-        //Esto que les dejo en comentarios es otra forma de programar el método show, para buscar y devolver los detalles de un elemento de mi tabla en la Base de Datos        
+        //Esto que les dejo en comentarios es otra forma de programar el método show, para buscar y devolver los detalles de un elemento de mi tabla en la Base de Datos - ersto lo programo Uriel        
         //public function show(Movie $id){
         //Aquí pueden hacer un dd(), para ver que trae el id    
         //dd($id);
@@ -90,79 +90,29 @@ class AdministrarPeliculasController extends Controller
         $pelicula = Movie::find($id);
         return view('movies.detallePelicula')->with('pelicula',$pelicula);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Aquí dispongo el método para mi buscador
+    public function search(Request $request){
+        //dd($request);
+        $buscar = $request->busqueda;
+        //dd($buscar);
+        $peliculas = Movie::where('title','like','%'.$buscar.'%')->paginate(10);
+        return view('movies.listadoPeliculas')->with('peliculas',$peliculas);
+
+        //$vac = compact('peliculas',$peliculas);
+        //return view('listadoPeliculas',compact('peliculas','otrosDatos','masDatos'));
+        //Otras formas de enviar datos a la vista
+        //return view('listadoPeliculas')->with(['peliculas' => $peliculas], ['otrosDatos' => $otrosDatos]);
+
+        //return view('listadoPeliculas')->with('peliculas',$peliculas)
+                                      // ->with('mensaje','Los datos fueron encontrados...') ;
+
+    }
+    public function delete($id){
+      $pelicula =  Movie::find($id);
+      $pelicula->delete();
+      return redirect('administrarPelicula');
+
+    }
 
 
     //Aquí les dejo una de las tantas formas que podemos usar para editar registros de nuestras tablas
