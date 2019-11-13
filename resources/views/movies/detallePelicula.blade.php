@@ -15,7 +15,7 @@
                 <li class="list-group-item">Premios: {{$pelicula->awards}}</li>
                 <li class="list-group-item">Fecha de creación: {{$pelicula->release_date}}</li>
                 <li class="list-group-item">Duracion: {{$pelicula->length}}</li>
-                <li class="list-group-item">Genero: {{$pelicula->genre_id}}</li>
+                <li class="list-group-item">Genero: {{$pelicula->genre->name}}</li>
             </ul>
             
         </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Movie;
 use App\Genre;
 use App\Actor;
+
 class AdministrarPeliculasController extends Controller
 {
     //Método creado para mostrar todos las películas de mi tabla movies
@@ -88,6 +89,7 @@ class AdministrarPeliculasController extends Controller
     //Función que busca el detalle de un registro en la Base de Datos        
     public function show($id){
         $pelicula = Movie::find($id);
+        //dd($pelicula->genre->name);
         return view('movies.detallePelicula')->with('pelicula',$pelicula);
     }
     //Aquí dispongo el método para mi buscador
