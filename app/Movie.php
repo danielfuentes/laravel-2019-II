@@ -19,7 +19,5 @@ class Movie extends Model
         //return $this->belongsToMany(Actor::class,'actor_movie','movie_id','actor:id');
         return $this->belongsToMany(Actor::class);
     }
-
-
     
 }

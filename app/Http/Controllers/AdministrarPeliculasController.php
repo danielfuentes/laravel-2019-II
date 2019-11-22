@@ -44,6 +44,7 @@ class AdministrarPeliculasController extends Controller
             'date' => 'Debe indicar una fecha...'
         ];
         
+
         $this->validate($request,$reglas,$mensajes);
         $pelicula = new Movie($request->all());
 		// Obtengo el archivo que viene en el formulario (Objeto de Laravel) que tiene a su vez el archivo de la imagen
