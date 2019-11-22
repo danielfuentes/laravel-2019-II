@@ -183,7 +183,21 @@ class AdministrarPeliculasController extends Controller
 
 		// Redireccionamos a una RUTA
 		return redirect('/administrarPelicula');
-	}
+    }
+    
+    public function addFavoritas($id){
+        $peliculaFavorita = Movie::find($id);
+        //dd($peliculaFavorita['title']);
+        $misPeliculas = [
+           'id' => $peliculaFavorita['id'],
+           'title' => $peliculaFavorita['title'],
+           'rating' => $peliculaFavorita['rating'],
+           'awards' => $peliculaFavorita['awards'],
+            'poster' => $peliculaFavorita['poster']
+        ];
+        session()->put('favoritas.'.$id,$misPeliculas);
+        return view('movies.misPeliculasFavoritas');
 
-
+    }
+   
 }

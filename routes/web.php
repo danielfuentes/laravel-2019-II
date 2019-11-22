@@ -37,7 +37,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Rutas para el  Administrador - Películas -
 
 //Esta la creamos en la clase, muestra todas las películas de nuestra Base de Datos
-Route::get('/administrarPelicula','AdministrarPeliculasController@index')->name('administrarPelicula');
+
+//Ojo, estos una manera de crear grupos de rutas filtradas pun middleware
+//Route::middleware('admin')->group(function(){
+
+//});
+
+
+Route::get('/administrarPelicula','AdministrarPeliculasController@index')->name('administrarPelicula')->middleware('admin');
 //Estas rutas las cree para adelantar el trabajo en la clase---
 
 //Ruta para agregar Pelicula
@@ -45,7 +52,7 @@ Route::get('/agregarPelicula','AdministrarPeliculasController@create');
 //Aquí debemos crear ruta por POST para guardar la película metodo: save
 Route::post('/guardarPelicula','AdministrarPeliculasController@save');
 //Ruta para ver el detalle de la Película
-Route::get('/detallePelicula/{id}','AdministrarPeliculasController@show');
+Route::get('/detallePelicula/{id}','AdministrarPeliculasController@show')->middleware('auth');
 //Ruta para Editar Películas
 Route::get('/editarPelicula/{id}','AdministrarPeliculasController@edit');
 //Ruta para guardar los cambios método update
@@ -57,9 +64,8 @@ Route::get('/buscarPelicula','AdministrarPeliculasController@search');
 Route::get('/eliminarPelicula/{id}','AdministrarPeliculasController@delete');
 
 
-
-
-
+//Rutas de las películas Favoritas
+Route::get('/peliculasFavoritas/{id}','AdministrarPeliculasController@addFavoritas')->middleware('auth');
 
 
 
@@ -93,7 +99,9 @@ Route::get('/eliminarPelicula/{id}','AdministrarPeliculasController@delete');
 
 
 //Otra forma de llamar las rutas, llamadas en grupo y ademas filtradas por un middleware
-//Route::middleware('admin)->group(function(){
+//Route::middleware('auth')->group(function(){
+// Route::get('/detallePelicula/{id}','AdministrarPeliculasController@show');    
 //Route::get('/buscarPelicula','AdministrarPeliculasController@search');
 //Route::get('/editarPelicula','AdministrarPeliculasController@edit');
+
 //});

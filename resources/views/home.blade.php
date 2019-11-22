@@ -41,7 +41,7 @@
           <div class="card-body">
             <p class="card-text __textopelicula">{{$pelicula->title}}</p>
             <a href="/detallePelicula/{{$pelicula->id}}" class="d-flex btn btn-primary __detalle">Ver Más</a>
-            <a href="#" class="d-flex btn btn_success __comprar">Comprar</a>
+            <a href="/peliculasFavoritas/{{$pelicula->id}}" class="d-flex btn btn_success __comprar">Favoritos</a>
           </div>
       </div>
       @endforeach      
