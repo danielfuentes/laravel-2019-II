@@ -24,27 +24,32 @@
                 </div>
                 <div class="form-group">
                     <label for="awards">Awards</label>
-                    <input type="number" class="form-control" name="awards" id="awards">
+                    <input type="number" class="form-control" name="awards" id="awards" value="{{old('awards')}}">
                 </div>
                 <div class="form-group">
                     <label for="release-date">Release Date</label>
-                    <input type="date" class="form-control" name="release_date" id="release-date">
+                    <input type="date" class="form-control" name="release_date" id="release-date" value="{{old('release_date')}}">
                 </div>
                 <div class="form-group">
                     <label for="duracionPelicula">Duración</label>
-                    <input type="number" class="form-control" name="length" id="duracionPelicula">
+                    <input type="number" class="form-control" name="length" id="duracionPelicula" value="{{old('length')}}">
                 </div>
                 <div class="form-group">
                     <label for="generos">Género de la Película</label>
                     
                     <select class="form-control" name="genre_id" id="generos">
-                        <option value="#" disabled>Seleccione Genero...</option>
+                        <option value="#" >Seleccione Genero...</option>
                         @foreach ($generos as $genero)
                             <option value="{{$genero->id}}">{{$genero->name}}</option>
                         @endforeach
                     </select>        
                 </div>
-                
+
+                <div class="form-group">
+                        <label for="poster">Poster de la Película</label>
+                        <input type="file" class="form-control" name="poster" id="poster" value="{{old('poster')}}">
+                </div>
+                    
                 <button type="submit" class="btn btn-primary">Registrar Película</button>
             </form>
             

@@ -15,10 +15,12 @@
 //Route::get('/','HomeController@index');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 
+//Esta ruta la cambie para poder trabajarlo de forma organizada, envío al controlador y de allí me comunico con el modelo y luego envio datos a la vista
+Route::get('/','AdministrarPeliculasController@indexHome');
 
 //Esta ruta es creada automaticamente por laravel luego de hacer lo referido a la autenticación
 // 1.- Deben instalar en sus equipos NODEJS
@@ -53,3 +55,45 @@ Route::post('/guardarPeliculaEditada/{id}', 'AdministrarPeliculasController@upda
 Route::get('/buscarPelicula','AdministrarPeliculasController@search');
 //Ruta para eliminar una película 
 Route::get('/eliminarPelicula/{id}','AdministrarPeliculasController@delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Ayuda para mis alunos y para todo aquel que chequee mi repositorio
+// Esto es sólo para que sepan que los llamados a las rutas existen otras formas de hacerlas
+//Rutas declaradas en base a un prefijo: Significa que todas las rutas de ese grupo van a tener asignadas el mismo prefijo y para poder llamarlas deben anteponer el mismo
+//Route::prefix('admin')->middleware('admin')->group(funtion(){
+    //Aquí deben colocar todas las rutas que desen 
+    //Route::get('/buscarPelicula','AdministrarPeliculasController@search');
+    //Route::get('/editarPelicula','AdministrarPeliculasController@edit');
+//});
+
+//Forma de llamar las rutas,  filtradas por un middleware
+
+//Route::get('perfil','PaginaController@perfil)->middleware('admin);
+
+
+//Otra forma de llamar las rutas, llamadas en grupo y ademas filtradas por un middleware
+//Route::middleware('admin)->group(function(){
+//Route::get('/buscarPelicula','AdministrarPeliculasController@search');
+//Route::get('/editarPelicula','AdministrarPeliculasController@edit');
+//});

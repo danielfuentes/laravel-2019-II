@@ -9,6 +9,13 @@ use App\Actor;
 
 class AdministrarPeliculasController extends Controller
 {
+    //Método creado para mostrar todos las películas en mi vista home
+    public function indexHome(){
+        $peliculas = Movie::all();
+        return view('home')->with('peliculas',$peliculas);
+    }
+
+
     //Método creado para mostrar todos las películas de mi tabla movies
     public function index(){
         $peliculas = Movie::paginate(10);
@@ -27,7 +34,8 @@ class AdministrarPeliculasController extends Controller
             'rating' => 'required|numeric',
             'awards' => 'required|numeric',
             'release_date' => 'date',
-            'length' => 'required|numeric'
+            'length' => 'required|numeric',
+            'poster' => 'required | image'
         ];
         $mensajes = [
             'title.required' => 'Este campo :attribute es requerido...',
@@ -38,6 +46,20 @@ class AdministrarPeliculasController extends Controller
         
         $this->validate($request,$reglas,$mensajes);
         $pelicula = new Movie($request->all());
+		// Obtengo el archivo que viene en el formulario (Objeto de Laravel) que tiene a su vez el archivo de la imagen
+		$imagen = $request->file('poster'); // El value del atributo name del input file
+
+		if ($imagen) {
+			// Armo un nombre único para este archivo
+			$imagenFinal = uniqid("img_") . "." . $imagen->extension();
+
+			// Subo el archivo en la carpeta elegida
+			$imagen->storePubliclyAs("public/posters", $imagenFinal);
+
+			// Le asigno la imagen a la película que guardamos
+			$pelicula->poster = $imagenFinal;
+		}
+
         $pelicula->save();
         return  redirect('/administrarPelicula');
     }
@@ -88,7 +110,9 @@ class AdministrarPeliculasController extends Controller
     
     //Función que busca el detalle de un registro en la Base de Datos        
     public function show($id){
+        //dd($id);
         $pelicula = Movie::find($id);
+        
         //dd($pelicula->genre->name);
         return view('movies.detallePelicula')->with('pelicula',$pelicula);
     }
