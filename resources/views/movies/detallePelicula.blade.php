@@ -21,11 +21,8 @@
         </div>
        
 
-        @if (Auth::user())
-            <a href="/administrarPelicula" class="btn btn-danger">Volver</a>
-        @else
-            <a href="/" class="btn btn-danger">Volver</a>
-        @endif
+        <a href="{{route('home')}}" class="btn btn-danger">Volver</a>
+
         
     </div>
 

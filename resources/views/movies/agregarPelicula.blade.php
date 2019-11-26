@@ -2,7 +2,7 @@
 @section('content')
     <h2 class="text-center">Agregar Película</h2>
     <div class="container-fluid">
-        <div class="row mt-5">
+            <div class="row mt-5">
         <div class="col-lg-8 offset-lg-2">
             @if (count($errors->all())>0)
                 <ul class="alert alert-danger">

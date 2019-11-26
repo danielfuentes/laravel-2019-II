@@ -2,10 +2,11 @@
 @section('content')
     <h2 class="text-center">Listado de Películas!!!</h2>
     <div>
-    <form action="/buscarPelicula" method="GET">
-        <input type="submit" value="Buscar"><input type="text" name="busqueda">
-        <a href="/agregarPelicula">Agregar Película</a>
-    </form>
+        <form class="form-inline" action="/buscarPelicula" method="GET" >
+            @csrf
+            <input class="btn btn-primary " type="submit" value="Buscar"><input class="form-control mx-sm-3" type="text" name="busqueda">
+            <a class="btn btn-success " href="/agregarPelicula">Agregar Película</a>
+          </form>
     </div>
    
     <div class="spacer">

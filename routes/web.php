@@ -64,26 +64,20 @@ Route::get('/buscarPelicula','AdministrarPeliculasController@search');
 Route::get('/eliminarPelicula/{id}','AdministrarPeliculasController@delete');
 
 
-//Rutas de las películas Favoritas
+//Rutas donde controlo lo de mis películas Favoritas, simulo como un carrito de compras
+
+//Ruta para agregar peliculas favoritas, aquí me estoy valiendo del middleware auth que me ofrece Laravel de forma tal que si el usuario no está registrado, no podrá agregar películas a favoritas
 Route::get('/peliculasFavoritas/{id}','AdministrarPeliculasController@addFavoritas')->middleware('auth');
 
+//Elimino alguna de mis peliculas favoritas, simulo eliminar productos seleccionados de mi carrito de compras 
+Route::get('/peliculasFavoritas/remove/{id}', "AdministrarPeliculasController@removeFavortita")->middleware('auth');
+
+//Muestro lo que tengo en mis películas Favoritas - Aquí simulo mostrar lo que tengo en mi carrito de compras
+Route::get('/peliculasFavoritas', 'AdministrarPeliculasController@showFavoritas')->name('favoritas')->middleware('auth');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//--------------------------------- AYUDA - CULTURA GENERAL LARAVEL -----------------------------
 //Ayuda para mis alunos y para todo aquel que chequee mi repositorio
 // Esto es sólo para que sepan que los llamados a las rutas existen otras formas de hacerlas
 //Rutas declaradas en base a un prefijo: Significa que todas las rutas de ese grupo van a tener asignadas el mismo prefijo y para poder llamarlas deben anteponer el mismo

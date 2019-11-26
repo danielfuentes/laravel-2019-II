@@ -54,11 +54,11 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('Carrito Peliculas') }}</a>
+                                <a class="nav-link" href="{{route('favoritas')}}">{{ __('Mis favoritas') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('administrarPelicula') }}">{{ __('Administrar Peliculas') }}</a>
+                                <a class="nav-link" href="{{ route('administrarPelicula') }}">{{ __('Administrar') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">

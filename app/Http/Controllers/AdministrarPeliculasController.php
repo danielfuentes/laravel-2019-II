@@ -28,7 +28,8 @@ class AdministrarPeliculasController extends Controller
     }
     //Método para guardar la película
     public function save(Request $request){
-        
+        //Aquí creo las reglas de la validación 
+        // Aquí les dejo la ayuda de Laraveles.com sobre las reglas de validación https://docs.laraveles.com/docs/5.5/validation#available-validation-rules
         $reglas = [
             'title'=> 'required',
             'rating' => 'required|numeric',
@@ -37,6 +38,7 @@ class AdministrarPeliculasController extends Controller
             'length' => 'required|numeric',
             'poster' => 'required | image'
         ];
+        //Ahora debo disponer los mensajes en base a las reglas señaladas por cada campo
         $mensajes = [
             'title.required' => 'Este campo :attribute es requerido...',
             'required' => 'Este campo :attribute es requerido...',
@@ -44,8 +46,9 @@ class AdministrarPeliculasController extends Controller
             'date' => 'Debe indicar una fecha...'
         ];
         
-
+        //Laravel nos ofrece un método para validar al cual le debo pasar los datos del formulario, mas las reglas y los mensajes
         $this->validate($request,$reglas,$mensajes);
+        //Aquí creo el objeto película con los datos del formulario
         $pelicula = new Movie($request->all());
 		// Obtengo el archivo que viene en el formulario (Objeto de Laravel) que tiene a su vez el archivo de la imagen
 		$imagen = $request->file('poster'); // El value del atributo name del input file
@@ -60,7 +63,7 @@ class AdministrarPeliculasController extends Controller
 			// Le asigno la imagen a la película que guardamos
 			$pelicula->poster = $imagenFinal;
 		}
-
+        //Invoco al método save para guardar la película
         $pelicula->save();
         return  redirect('/administrarPelicula');
     }
@@ -113,11 +116,11 @@ class AdministrarPeliculasController extends Controller
     public function show($id){
         //dd($id);
         $pelicula = Movie::find($id);
-        
+        //dd($pelicula->genre);
         //dd($pelicula->genre->name);
         return view('movies.detallePelicula')->with('pelicula',$pelicula);
     }
-    //Aquí dispongo el método para mi buscador
+    //Aquí dispongo el método para mi buscador muy sencillo
     public function search(Request $request){
         //dd($request);
         $buscar = $request->busqueda;
@@ -186,6 +189,10 @@ class AdministrarPeliculasController extends Controller
 		return redirect('/administrarPelicula');
     }
     
+
+    //----- Aquí les dinpongo los métodos para trabajar con las películas favoritas - simulando un carrito de compras utilizando sessiones, no lo estoy guardando en la base de datos
+
+    //Método para agegar mis películas favoritas
     public function addFavoritas($id){
         $peliculaFavorita = Movie::find($id);
         //dd($peliculaFavorita['title']);
@@ -200,5 +207,15 @@ class AdministrarPeliculasController extends Controller
         return view('movies.misPeliculasFavoritas');
 
     }
-   
+    //Método para mostrar las peliculas favoritas seleccionadas - Simulo mostrar el carrito - tal como lo indico Ramiro
+    public function showFavoritas(){
+        return view('movies.misPeliculasFavoritas');
+    }
+
+    //Método para remover una pelóicula de mi lista de favoritas
+    public function removeFavortita($id){
+        session()->pull('favoritas.'.$id,'default');
+        return view('movies.misPeliculasFavoritas');
+    }
+
 }

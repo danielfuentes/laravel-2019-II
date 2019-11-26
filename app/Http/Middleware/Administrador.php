@@ -15,6 +15,7 @@ class Administrador
      */
     public function handle($request, Closure $next)
     {
+        //Este es el middleware que desarrolle para controlar el acceso al administrador  -- luego de ejecutar comado php artisan make:middleware  
         if($request->user()->role !=9){
             return redirect()->route('home');
         }
