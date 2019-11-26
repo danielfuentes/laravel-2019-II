@@ -26,7 +26,7 @@ Este constituye un proyecto académico sobre el Framework Laravel, al descargarl
 - Middleware
 - Ejemplo de migraciones
 - Ejemplo simulado de un carrito de compras, pero con películas favortitas, haciendo uso de sessiones
-- CRUD - completo para administrar las películas, este lo pueden tomar como ejemplo efectuar las administraciones de los recursos que ustdes posean en su aplicación
+- CRUD - completo para administrar las películas, este lo pueden tomar como ejemplo para efectuar las administraciones de los recursos que ustdes posean en su aplicación (Incluir - Modificar - Eliminar - Buscar y Listar)
 
 ## Lo importante es que lo tomen como una guía e incorporen todo lo que deseen, espero les resulte de utilidad
 
