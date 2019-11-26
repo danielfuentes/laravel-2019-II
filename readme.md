@@ -13,8 +13,19 @@ Este constituye un proyecto académico sobre el Framework Laravel, al descargarl
 - [Desde la consola, deben ejecutar el comando: composer update ó composer install]
 - [Tomar la información contenida en el archivo .env.example y crear su propio archivo .env, ejecutar los cambios que requiera]
 - [Desde la consola, ejecutar el comando php artisan key:generate]
+- [En la carpeta bd encontraran la Base de datos que estoy utilizando, deben importarla en su pc, utilizando phpmyadmin o workbench]
 - [Ejecutar desde la consola, el comando: php artisan serve]
 
-## Si se animan pueden ir de a poco desarrollando los módelos y controladores necesarios
 
-Ya estan creadas las rutas y también las vistas.
+## Que van a encontrar en este proyecto académico: 
+
+- Rutas.
+- Controladores
+- Vistas
+- Ajuste del lenguaje a español para los mensajes de los formularios
+- Middleware
+- Ejemplo de migraciones
+- Ejemplo simulado de un carrito de compras, pero con películas favortitas, haciendo uso de sessiones
+
+## Lo importante es que lo tomen como una guía e incorporen todo lo que deseen, espero les resulte de utilidad
+
