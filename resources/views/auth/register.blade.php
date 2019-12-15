@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registro de usuario') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form  id="formulario" class="formulario"  method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -22,6 +22,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                <div id="errorName"> </div>
                             </div>
                         </div>
 
@@ -36,6 +38,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div id="errorEmail" ></div>
                             </div>
                         </div>
 
@@ -50,6 +53,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div id="errorPassword" ></div>
                             </div>
                         </div>
 
@@ -58,7 +62,9 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
+                                <div id="errorPasswordConfirmation" ></div>
                             </div>
+                            
                         </div>
 
                         <div class="form-group row">
@@ -72,6 +78,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div id="errorAvatar" ></div>
                             </div>
                          </div>
                         
@@ -89,4 +96,5 @@
         </div>
     </div>
 </div>
+<script src="{{asset('js/register.js')}} "></script>
 @endsection

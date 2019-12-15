@@ -36,7 +36,7 @@
       @foreach ($peliculas as $pelicula)
           <div class="d-flex card col-12 col-md-4 col-lg-3 __itempelicula" style="width: 18rem;">
         
-          <img src="{{asset('storage/posters/'.$pelicula->poster)}}" 
+          <img  src="{{asset('storage/posters/'.$pelicula->poster)}}" 
           class="card-img-top __imgpelicula" alt="...">
           <div class="card-body">
             <p class="card-text __textopelicula">{{$pelicula->title}}</p>
@@ -80,4 +80,6 @@
     </footer>
   </div>
 </div>
+
+<script src="{{asset('js/home.js')}}"></script>
 @endsection
