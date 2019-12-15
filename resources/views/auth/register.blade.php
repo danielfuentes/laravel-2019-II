@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registro de usuario') }}</div>
 
                 <div class="card-body">
-                    <form  id="formulario" class="formulario"  method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form  id="formulario" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -22,9 +22,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-
-                                <div id="errorName"> </div>
+                                <div id="errorName"></div>
                             </div>
+                            
                         </div>
 
                         <div class="form-group row">
@@ -40,20 +40,27 @@
                                 @enderror
                                 <div id="errorEmail" ></div>
                             </div>
+                            
                         </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-group mb-2">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
+                                <div class="input-group-prepend">
+                                        <!--Aquí incorpore el ojo de la libreria https://ionicons.com/-->
+                                        <!--Noten que le agregue la clase ojo, para lograr usarlo por mas de una vez icono del ojo-->
+                                        <div class="input-group-text" id="ojoPassword"><ion-icon  name="eye"></ion-icon></div>
+                                </div>
+                    
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <div id="errorPassword" ></div>
+                                <div id="errorPassword"></div>
                             </div>
                         </div>
 
@@ -62,9 +69,9 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
+                                
                                 <div id="errorPasswordConfirmation" ></div>
                             </div>
-                            
                         </div>
 
                         <div class="form-group row">
@@ -78,7 +85,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <div id="errorAvatar" ></div>
                             </div>
                          </div>
                         

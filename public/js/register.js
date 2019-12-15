@@ -1,11 +1,12 @@
 window.onload=function(){
   //  Esta es otra forma de capturar el elemento de formulario var registerForm = document.forms[0]
-  let register= document.querySelector('.formulario')
+  let register= document.querySelector('#formulario')
   //console.log(register.elements.first_name)
   //Esto lo hago para disponer el focus en ese campo apenas carga el formulario
   register.elements.name.focus();
-  //console.log(register.elements.first_name.value);
+  console.log(register.elements.name.value);
   register.onsubmit = function(evento) {
+    
       if (!validateRegister()) {
         evento.preventDefault()
       }else{
@@ -59,6 +60,7 @@ window.onload=function(){
     }
   }
   function validatePassword(password) {
+        //En la contraseña como minimo se requiero ocho caracteres, usando mayusculas y minusculas, si desean usar 6 caracteres  deben entonces cambiar el 8    (   d]{8,}$/  ) por un 6 
         let re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
         let errorPass = document.getElementById('errorPassword');
         if (!re.test(password.value)) {
@@ -94,5 +96,20 @@ window.onload=function(){
           return true;
         }
       }
-  }
+
+      //Aquí incorporo lo referido a la incorporación de la visualización del código del password, lo realice usando jquery
+      //Ojo no se les olvide incorporar el llamado a <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>   y eso lo colocan en su app.blade.php antes del cierre del </body>
+      let password1 = $('#password')
+      $('#ojoPassword').click(function () { 
+          if(password1.attr('type')=='password'){
+              $('#ojoPassword').attr('name','eye')
+              password1.attr('type','text')
+          }else{
+               $('#ojoPassword').attr('name','eye-off')            
+               password1.attr('type','password')
+          }
+      });        
+
+
+  } // Fin de la función onload
   
