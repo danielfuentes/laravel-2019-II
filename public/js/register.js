@@ -110,6 +110,15 @@ window.onload=function(){
           }
       });        
 
+      //Aquí sólo les ejemplifico una forma de llamar desde Javascript una ruta de Laravel, luego que el usuario accione click sobre un boton.
+      
+      let yaPoseo = document.getElementById('yaPoseo');
+      yaPoseo.addEventListener('click',function(){
+        window.location.href = 'login';
+        //Si fuese el caso que estan en login y desean ir a register
+        //window.location.href = 'register';
+      });
+
 
   } // Fin de la función onload
   

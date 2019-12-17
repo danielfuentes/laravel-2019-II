@@ -95,7 +95,15 @@
                                     {{ __('Registrarme') }}
                                 </button>
                             </div>
-                        </div>
+                            <!--Aquí agrego un boton pero para usarlo con Javascript-->
+
+                            <div class="col-md-6 offset-md-4">
+                                
+                                <button id="yaPoseo" type="submit" class="btn btn-success">
+                                    {{ __('Ya poseo una cuenta') }}
+                                </button>
+                            </div>                       
+                         </div>
                     </form>
                 </div>
             </div>
